@@ -1,5 +1,7 @@
 # LGSM Master Control
 
+[![Build Status](https://travis-ci.org/colterd/LGSM-Master-Control.svg?branch=master)](https://travis-ci.org/colterd/LGSM-Master-Control)
+
 A really basic Shell script to control multiple instances of LSGM game servers.
 You MUST be using LGSM for this to make sense.
 
