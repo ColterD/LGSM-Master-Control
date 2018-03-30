@@ -5,7 +5,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 title="This script is the master control for all LGSM servers."
-options=("Start" "Stop" "Restart" "Update")
+options=("Start" "Stop" "Restart" "Update" "Update Functions")
 
 echo -e "\\n\\e[1;34m"
 echo -e  "$title"
@@ -17,8 +17,9 @@ select opt in "${options[@]}" "Quit"; do
 
     1 ) echo -e "\\n\\e[1;32mStarting servers...\\e[0m"; bash masterconfig/masterstart-config.sh; echo -e "\\e[1;32mStarting servers... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;33mGive the servers time to boot.\\nCan take up to 60 seconds for them to fully boot.\\n\\e[0m"; break;;
     2 ) echo -e "\\n\\e[1;31mStopping servers...\\e[0m"; bash masterconfig/masterstop-config.sh; echo -e "\\n\\e[1;31mStopping servers... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;32mServers should be stopped by the time of this message.\\n\\e[0m"; break;;
-    3 ) echo -e "\\n\\e[1;33mRestarting servers...\\e[0m"; bash masterconfig/masterrestart-config.sh; echo -e "\\n\\e[1;33mRestarting servers... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;33mGive the servers time to boot.\\nCan take up to 60 seconds for them to fully boot.\\n\\e[0m"; break;;
+    3 ) echo -e "\\n\\e[1;33mRestarting servers...\\e[0m"; bash masterconfig/masterrestart-config.sh; echo -e "\\n\\e[1;33mRestarting servers... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;33mGive the servers time to boot.\\nCan take up to 60 seconds for them to fully boot per server.\\n\\e[0m"; break;;
     4 ) echo -e "\\n\\e[1;33mForcing updates...\\e[0m"; bash masterconfig/masterupdate-config.sh; echo -e "\\n\\e[1;33mForcing updates... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;33mServers updated.\\nDon't forget to start all if needed.\\n\\e[0m"; break;;
+    5 ) echo -e "\\n\\e[1;33mForcing function updates...\\e[0m"; bash masterconfig/masteruf-config.sh; echo -e "\\n\\e[1;33mForcing function updates... DONE!\\e[0m"; sleep 1; echo -e "\\n\\e[1;33mServers updated.\\nGive it about 5 minutes to be fully complete.\\n\\e[0m"; break;;
 
     $(( ${#options[@]}+1 )) ) echo -e "\\n\\e[1;31mCancelled\\e[0m"; exit;;
     *) echo -e "\\n\\e[1;31mSInvalid option.\\e[0m"; continue;;
