@@ -6,8 +6,6 @@ You MUST be using LGSM for this to make sense.
 Run the script as sudo (script will end if you don't) and basically just use some common sense.
 The code is mostly™ cleaned up and decent, but if you get an error running it.. use a dos2unix converter on it and should be okay.
 
-The configs aren't included but should be placed in a directory called masterconfig and is called with masterstart-config.sh and so on.
-
 With a little messing around you should figure this out but I don't offer any support for this so good luck.
 
 You can use it without issues, just give me credit if you do.
